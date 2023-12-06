@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+
+<body>
+<div id="bigBox">
+    <h1>SIGN UP</h1>
+    <div class="inputBox">
+            <form action="#" class="form" id="form1">
+                <div class="inputText">
+                    <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
+                    <input type="text" placeholder="账号" id="username"/>
+                </div>
+                <div class="inputText">
+                    <i class="fa fa-key" style="color: whitesmoke;"></i>
+                    <input type="password" placeholder="密码" id="password"/>
+                </div>
+                <div class="inputText">
+                    <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
+                    <input type="text" placeholder="邮箱" id="email"/>
+                </div>
+            </form>
+        <input type="submit" class="Button" value="登录" onclick="toLogin()"/>
+    </div>
+</div>
+</body>
+
+<script>
+function toLogin(){
+location.href='login';
+}
+</script>
+
+</html>

@@ -3,7 +3,7 @@ body{
     padding-left:800px;
     background-repeat: repeat-x;
     background-image:url('../img/index_background.jpg');
-    background-size: 100% 170%;
+    background-size: 100% 150%;
 }
 a{
     color: #666;
@@ -49,7 +49,7 @@ a{
 {
     color: white;
 }
-#bigBox .inputBox .inputButton
+#bigBox .inputBox .Button
 {
     border: 0;
     width: 200px;

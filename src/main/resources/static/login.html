@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,23 +8,95 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 </head>
+
 <body>
 <div id="bigBox">
     <h1>LOGIN</h1>
     <div class="inputBox">
-        <form action="check.jsp" method="post">
+        <form action="/home.html">
             <div class="inputText">
                 <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
-                <input type="text" placeholder="账号" name="username"/>
+                <input type="text" placeholder="账号" id="username"/>
             </div>
             <div class="inputText">
                 <i class="fa fa-key" style="color: whitesmoke;"></i>
-                <input type="password" placeholder="密码" name="password"/>
+                <input type="password" placeholder="密码" id="password"/>
             </div>
-            <input type="submit" class="inputButton" value="登录" />
-            <input type="submit" class="inputButton" value="注册" />
+            <input type="submit" class="Button" value="登录" onclick="check()"/>
         </form>
+        <input type="submit" class="Button" value="注册" onclick="toSignup()"/>
     </div>
 </div>
 </body>
+
+<script>
+    // function check() {
+    //     var username = request.getParameter("username");
+    //     var password = request.getParameter("password");
+    //
+    //     request.getRequestDispatcher("home.html").forward(request, response);
+    // }
+
+    // 查找元素
+    function getValue(id) {
+        return document.getElementById(id).value;
+    }
+    function check() {
+        if(getValue('username') === "test" && getValue('password') === "111") {
+            return true;
+        }else {
+            alert("登录名或密码错误！");
+            location.href='login';
+            // 警告框
+            return false;
+        }
+    }
+    function toSignup(){
+        location.href='signup';
+    }
+</script>
+
+
+<!--/*-->
+<!--//    Connection connection = null;-->
+<!--//    Statement statement = null;-->
+<!--//    ResultSet rs = null;-->
+<!--//-->
+<!--//-->
+<!--//    try {-->
+<!--//        // 导入驱动，加载具体的驱动类-->
+<!--//        Class.forName("com.mysql.cj.jdbc.Driver");-->
+<!--//-->
+<!--//        //与数据库建立连接-->
+<!--//        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/user", "root", "123456");-->
+<!--//        statement = connection.createStatement();-->
+<!--//        //发送sql语句，执行-->
+<!--//        String sql = "select count(*) from user where name = '"+username+"' and password = '"+password+"'  ";-->
+<!--//        rs = statement.executeQuery(sql);-->
+<!--//        //处理结果-->
+<!--//        PrintWriter writer = response.getWriter();-->
+<!--//        int count = -1;-->
+<!--//        if (rs.next()) {-->
+<!--//            count = rs.getInt(1);-->
+<!--//        }-->
+<!--//        if (count > 0) {-->
+<!--//            request.getRequestDispatcher("success.jsp").forward(request, response);-->
+<!--//        }else {-->
+<!--//            writer.print("<script>alert('密码错误，请重新登录');location.href='/login.jsp'</script>");-->
+<!--//        }-->
+<!--//    } catch (ClassNotFoundException e) {-->
+<!--//        e.printStackTrace();-->
+<!--//    } catch (SQLException e) {-->
+<!--//        e.printStackTrace();-->
+<!--//    }finally {-->
+<!--//        try {-->
+<!--//            if (rs != null) rs.close();-->
+<!--//            if (statement != null) statement.close();-->
+<!--//            if (connection != null) connection.close();-->
+<!--//        } catch (SQLException e) {-->
+<!--//            e.printStackTrace();-->
+<!--//        }-->
+<!--//    }-->
+<!--*/-->
+
 </html>

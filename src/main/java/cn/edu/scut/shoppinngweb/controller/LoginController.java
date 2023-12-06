@@ -6,18 +6,23 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/")
 public class LoginController {
-    @GetMapping()
+
+    @RequestMapping(value = {
+            "/",
+            "/login"
+    })
     public String login(){
         return "login.html";
+    }
+    @RequestMapping(value = "signup")
+    public String signup(){
+        return "signup.html";
     }
 }
 

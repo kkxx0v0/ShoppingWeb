@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<div id="cartContainer">
+    <h1>Shopping Cart</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Sample Cart Items -->
+        <tr>
+            <td>Product 1</td>
+            <td>$20.00</td>
+            <td>
+                <input type="number" value="1" min="1">
+            </td>
+            <td>$20.00</td>
+            <td>
+                <button class="removeCartItem">Remove</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Product 2</td>
+            <td>$15.00</td>
+            <td>
+                <input type="number" value="2" min="1">
+            </td>
+            <td>$30.00</td>
+            <td>
+                <button class="removeCartItem">Remove</button>
+            </td>
+        </tr>
+        <!-- Add more rows for additional items -->
+
+        <!-- Total Row -->
+        <tr>
+            <td colspan="3"></td>
+            <td>Total: $50.00</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="checkout">
+        <button class="checkoutButton">Checkout</button>
+    </div>
+</div>
+</body>
+</html>

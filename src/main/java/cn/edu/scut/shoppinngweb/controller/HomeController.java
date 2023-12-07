@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 
 public class HomeController {
-    @RequestMapping(value = "/home")
+    @RequestMapping("/home")
     public String home(){
         return "home.html";
     }

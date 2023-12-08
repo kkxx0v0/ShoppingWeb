@@ -9,36 +9,62 @@
 </head>
 
 <body>
-<div id="bigBox">
-    <h1>SIGN UP</h1>
-    <div class="inputBox">
-            <form action="#" class="form" id="form1">
+<div id="app">
+    <div id="bigBox">
+        <h1>SIGN UP</h1>
+        <div class="inputBox">
+            <div>
                 <div class="inputText">
                     <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
-                    <input type="text" placeholder="账号" id="username"/>
+                    <input type="text" placeholder="账号" id="username" v-model="account.username"/>
                 </div>
                 <div class="inputText">
                     <i class="fa fa-key" style="color: whitesmoke;"></i>
-                    <input type="password" placeholder="密码" id="password"/>
+                    <input type="password" placeholder="密码" id="password" v-model="account.password"/>
                 </div>
                 <div class="inputText">
                     <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
-                    <input type="text" placeholder="邮箱" id="email"/>
+                    <input type="text" placeholder="邮箱" id="email" v-model="account.email"/>
                 </div>
-                <input type="submit" class="Button" value="注册" onclick="register()"/>
-            </form>
-        <input type="submit" class="Button" value="登录" onclick="toLogin()"/>
+                <input type="submit" class="Button" value="注册" @click="handleAdd"/>
+            </div>
+            <input type="submit" class="Button" value="登录" onclick="toLogin()"/>
+        </div>
     </div>
 </div>
+
 </body>
 
-<script>
-function toLogin(){
-location.href='login';
-}
-function register(){
+<script src="vue.js" type="text/javascript" charSet="utf-8"></script>
+<script src="axios-0.18.0.js"></script>
 
-}
+<script>
+
+    function toLogin(){
+        location.href='login';
+    }
+    const vue = new Vue({
+        el: '#app',
+        data:{
+            account:{
+                username:'',
+                password:'',
+                email:'',
+                role:'1'
+            }
+        },
+        methods: {
+            handleAdd(){
+                axios.put("/user",this.account).then((res)=>{
+                    if(res.data.success){
+                        window.location.href = 'login.html'
+                    } else {
+                        alert(res.data.errorMsg);
+                    }
+                })
+            }
+        },
+    });
 </script>
 
 </html>

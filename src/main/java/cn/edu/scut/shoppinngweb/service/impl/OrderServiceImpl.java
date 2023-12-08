@@ -140,10 +140,4 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
         return Result.ok(buyReports);
     }
-
-    @Override
-    public Result dhfidhf(Long userId) {
-
-        return null;
-    }
 }

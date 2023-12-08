@@ -19,11 +19,6 @@ public class OrderController {
         return orderService.newOrder(userId);
     }
 
-    @PostMapping()
-    public Result newOrder(@CookieValue("user") Long userId, @RequestBody List<Long> carts){
-        return orderService.dhfidhf(userId);
-    }
-
     @GetMapping("/{id}")
     public Result finishOrder(@PathVariable Long id){
         return orderService.finishOrder(id);

@@ -13,5 +13,4 @@ public interface OrderService extends IService<Order> {
 
     Result getAllOrder();
 
-    Result dhfidhf(Long userId);
 }

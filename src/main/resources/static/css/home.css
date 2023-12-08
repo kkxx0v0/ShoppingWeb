@@ -21,22 +21,33 @@ body {
     float: left;
 }
 
+.banner{
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px;
+}
+
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    height: 50px;
 }
 
 .search-input {
     flex-grow: 1;
     padding: 10px;
     border-radius: 5px;
+    height: 30px;
+    font-size: large;
 }
 
 .button {
+    height: 60px;
     margin: 10px 10px;
-    font-size:20px;
+    font-size:25px;
     padding: 8px 12px;
     background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%,#b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
     color: #dddddd;
@@ -48,7 +59,7 @@ body {
 
 
 .list {
-    margin: 10px 10px;
+    margin: 10px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -56,22 +67,22 @@ body {
 
 .item {
     width: calc(25% - 30px);
-    margin-bottom: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     overflow: hidden;
     transition: transform 0.2s;
 }
 
 .item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .image {
     max-width: 100%;
     display: block;
-    margin: 0 auto;
+    margin: 15px 75px;
 }
 
 .info {
@@ -79,12 +90,12 @@ body {
 }
 
 .name {
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 .price,
 .number {
-    font-size: 14px;
+    font-size: 25px;
     color: #666;
 }

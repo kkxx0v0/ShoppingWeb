@@ -1,13 +1,13 @@
-html{
+html {
     height: 100%;
 }
 
 body {
     height: 100%;
     background-color: white;
-    margin:0;
+    margin: 0;
     padding: 0;
-    font-family: Arial,sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 #top {
@@ -21,19 +21,18 @@ body {
     float: left;
 }
 
-.banner{
-    justify-content: space-between;
-    align-items: center;
-    margin: 25px;
-}
-
-
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     height: 50px;
+}
+
+.banner {
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px;
 }
 
 .search-input {
@@ -47,9 +46,9 @@ body {
 .button {
     height: 60px;
     margin: 10px 10px;
-    font-size:25px;
+    font-size: 25px;
     padding: 8px 12px;
-    background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%,#b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+    background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
     color: #dddddd;
     border: none;
     border-radius: 5px;
@@ -82,7 +81,7 @@ body {
 .image {
     max-width: 100%;
     display: block;
-    margin: 15px 75px;
+    margin: 15px 30px;
 }
 
 .info {

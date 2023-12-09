@@ -1,11 +1,9 @@
 package cn.edu.scut.shoppinngweb.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import cn.edu.scut.shoppinngweb.dto.Result;
 import cn.edu.scut.shoppinngweb.service.OrderService;
-
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
@@ -15,22 +13,22 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping()
-    public Result newOrder(@CookieValue("user") Long userId){
+    public Result newOrder(@CookieValue("user") Long userId) {
         return orderService.newOrder(userId);
     }
 
     @GetMapping("/{id}")
-    public Result finishOrder(@PathVariable Long id){
+    public Result finishOrder(@PathVariable Long id) {
         return orderService.finishOrder(id);
     }
 
     @GetMapping("/all")
-    public Result getReport(){
+    public Result getReport() {
         return orderService.getReport();
     }
 
     @GetMapping("/allOrder")
-    public Result getAllOrder(){
+    public Result getAllOrder() {
         return orderService.getAllOrder();
     }
 }

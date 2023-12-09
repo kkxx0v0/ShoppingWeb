@@ -1,10 +1,5 @@
 package cn.edu.scut.shoppinngweb.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import cn.edu.scut.shoppinngweb.VO.BuyReport;
 import cn.edu.scut.shoppinngweb.VO.ItemReport;
 import cn.edu.scut.shoppinngweb.dto.Result;
@@ -12,6 +7,11 @@ import cn.edu.scut.shoppinngweb.entity.*;
 import cn.edu.scut.shoppinngweb.mapper.*;
 import cn.edu.scut.shoppinngweb.service.MailService;
 import cn.edu.scut.shoppinngweb.service.OrderService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -21,22 +21,17 @@ import java.util.List;
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
 
     @Autowired
+    MailService mailService;
+    @Autowired
     private CartMapper cartMapper;
-
     @Autowired
     private ItemMapper itemMapper;
-
     @Autowired
     private OrderMapper orderMapper;
-
     @Autowired
     private UserMapper userMapper;
-
     @Autowired
     private OrderItemMapper orderItemMapper;
-
-    @Autowired
-    MailService mailService;
 
     @Override
     @Transactional
@@ -73,7 +68,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setUserId(userId);
         order.setAmount(total);
         orderMapper.insert(order);
-        for(OrderItem orderItem:orderItems){
+        for (OrderItem orderItem : orderItems) {
             orderItem.setOrderId(order.getId());
             orderItemMapper.insert(orderItem);
         }

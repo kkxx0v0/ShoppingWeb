@@ -5,7 +5,7 @@
 <mapper namespace="cn.edu.scut.shoppinngweb.mapper.OrderItemMapper">
     <select id="selectCountByItemId" resultType="Integer">
         SELECT SUM(count)
-        FROM  tb_order_item
+        FROM tb_order_item
         WHERE item_id = #{itemId}
     </select>
 

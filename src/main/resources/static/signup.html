@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>注册</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
@@ -16,47 +16,48 @@
             <div>
                 <div class="inputText">
                     <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
-                    <input type="text" placeholder="账号" id="username" v-model="account.username"/>
+                    <input id="username" placeholder="账号" type="text" v-model="account.username"/>
                 </div>
                 <div class="inputText">
                     <i class="fa fa-key" style="color: whitesmoke;"></i>
-                    <input type="password" placeholder="密码" id="password" v-model="account.password"/>
+                    <input id="password" placeholder="密码" type="password" v-model="account.password"/>
                 </div>
                 <div class="inputText">
                     <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
-                    <input type="text" placeholder="邮箱" id="email" v-model="account.email"/>
+                    <input id="email" placeholder="邮箱" type="text" v-model="account.email"/>
                 </div>
-                <input type="submit" class="Button" value="注册" @click="handleAdd"/>
+                <input @click="handleAdd" class="Button" type="submit" value="注册"/>
             </div>
-            <input type="submit" class="Button" value="登录" onclick="toLogin()"/>
+            <input class="Button" onclick="toLogin()" type="submit" value="登录"/>
         </div>
     </div>
 </div>
 
 </body>
 
-<script src="vue.js" type="text/javascript" charSet="utf-8"></script>
+<script charSet="utf-8" src="vue.js" type="text/javascript"></script>
 <script src="axios-0.18.0.js"></script>
 
 <script>
 
-    function toLogin(){
-        location.href='login';
+    function toLogin() {
+        location.href = 'login';
     }
+
     const vue = new Vue({
         el: '#app',
-        data:{
-            account:{
-                username:'',
-                password:'',
-                email:'',
-                role:'1'
+        data: {
+            account: {
+                username: '',
+                password: '',
+                email: '',
+                role: '1'
             }
         },
         methods: {
-            handleAdd(){
-                axios.put("/user",this.account).then((res)=>{
-                    if(res.data.success){
+            handleAdd() {
+                axios.put("/user", this.account).then((res) => {
+                    if (res.data.success) {
                         window.location.href = 'login.html'
                     } else {
                         alert(res.data.errorMsg);

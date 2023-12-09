@@ -10,7 +10,7 @@ public class MailService {
     @Autowired
     JavaMailSender javaMailSender;
 
-    public void sendMail(String to,String subject,String text){
+    public void sendMail(String to, String subject, String text) {
         SimpleMailMessage smm = new SimpleMailMessage();
         smm.setFrom("cuiyuxin2002@outlook.com");//发送者
         smm.setTo(to);//收件人

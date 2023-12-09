@@ -1,8 +1,8 @@
 package cn.edu.scut.shoppinngweb.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import cn.edu.scut.shoppinngweb.dto.Result;
 import cn.edu.scut.shoppinngweb.entity.Cart;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 public interface CartService extends IService<Cart> {
     Result addCart(Long userId, Long itemId);

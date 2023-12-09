@@ -1,12 +1,12 @@
 package cn.edu.scut.shoppinngweb.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import cn.edu.scut.shoppinngweb.dto.Result;
 import cn.edu.scut.shoppinngweb.entity.Item;
 import cn.edu.scut.shoppinngweb.mapper.ItemMapper;
 import cn.edu.scut.shoppinngweb.service.ItemService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements It
 
     @Override
     public Result insertItem(Item item) {
-        if (save(item)){
+        if (save(item)) {
             return Result.ok("插入成功");
         } else {
             return Result.fail("插入失败");

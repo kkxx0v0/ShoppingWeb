@@ -1,14 +1,14 @@
 package cn.edu.scut.shoppinngweb.service.impl;
 
+import cn.edu.scut.shoppinngweb.dto.Result;
+import cn.edu.scut.shoppinngweb.entity.User;
+import cn.edu.scut.shoppinngweb.mapper.UserMapper;
+import cn.edu.scut.shoppinngweb.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import cn.edu.scut.shoppinngweb.dto.Result;
-import cn.edu.scut.shoppinngweb.entity.User;
-import cn.edu.scut.shoppinngweb.mapper.UserMapper;
-import cn.edu.scut.shoppinngweb.service.UserService;
 
 import java.math.BigDecimal;
 
@@ -23,7 +23,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         User u = userMapper.selectUserByName(user.getUsername());
         if (u != null) {
             if (u.getPassword().equals(user.getPassword())) {
-                response.addCookie(new Cookie("user" , u.getId().toString()));
+                response.addCookie(new Cookie("user", u.getId().toString()));
                 Result ok = Result.ok();
                 ok.setErrorMsg(u.getRole());
                 return ok;

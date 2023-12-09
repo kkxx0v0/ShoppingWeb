@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/home.css">
+<link href="css/home.css" rel="stylesheet" type="text/css">
 <head>
     <title>在线商城TTT</title>
 </head>
@@ -10,24 +10,24 @@
 <div id="app">
     <div class="top">
         <a>
-            <img src="/img/logo.jpg" alt="图片" class="banner" height="200" width="20%">
-            <img src="/img/banner3.jpg" alt="图片" class="banner" height="200" width="20%">
-            <img src="/img/slogan.jpg" alt="图片" class="banner" height="200" width="10%">
-            <img src="/img/banner1.jpg" alt="图片" class="banner" height="200" width="20%">
-            <img src="/img/banner2.jpg" alt="图片" class="banner" height="200" width="20%">
+            <img alt="图片" class="banner" height="200" src="/img/logo.jpg" width="20%">
+            <img alt="图片" class="banner" height="200" src="/img/banner3.jpg" width="20%">
+            <img alt="图片" class="banner" height="200" src="/img/slogan.jpg" width="10%">
+            <img alt="图片" class="banner" height="200" src="/img/banner1.jpg" width="20%">
+            <img alt="图片" class="banner" height="200" src="/img/banner2.jpg" width="20%">
         </a>
 
         <div class="header">
-            <button class="button">退出登录</button>
-            <input placeholder="请输入商品名进行搜索" class="search-input">
+            <button @click="toExit" class="button">退出登录</button>
+            <input @click="searchById" class="search-input" placeholder="请输入商品名进行搜索">
             <button class="button">搜索</button>
-            <button class="button">购物车</button>
+            <button @click="toCart" class="button">购物车</button>
         </div>
 
         <template>
             <div class="list">
-                <div class="item" v-for="item in items" :key="item.id">
-                    <img :src="item.imgPath" alt="图片" class="image" height="550" width="550">
+                <div :key="item.id" class="item" v-for="item in items">
+                    <img :src="item.imgPath" alt="图片" class="image" height="400" width="400">
                     <div class="info">
                         <p class="name">{{ item.name }}</p>
                         <p class="number">剩余数量: {{ item.count }}</p>
@@ -41,7 +41,7 @@
 </div>
 
 
-<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+<script charset="utf-8" src="vue.js" type="text/javascript"></script>
 <script src="axios-0.18.0.js"></script>
 <script>
     new Vue({
@@ -54,16 +54,16 @@
             this.getAll()
         },
         methods: {
-            getAll(){
-                axios.get("/item").then((res)=>{
+            getAll() {
+                axios.get("/item").then((res) => {
                     this.items = res.data.data;
                     //console.log(res.data.data)
                 })
             },
-            getNeedId() {
-                if (this.search !== ""){
+            searchById() {
+                if (this.search !== "") {
                     axios.get("/item/" + this.search).then((res) => {
-                        if (res.data.total === 0){
+                        if (res.data.total === 0) {
                             alert("未找到任何商品！")
                         } else {
                             this.items = res.data.data;
@@ -71,14 +71,14 @@
                     })
                 } else {
                     alert("搜索内容不能为空！")
-                    axios.get("/item").then((res)=>{
+                    axios.get("/item").then((res) => {
                         this.items = res.data.data;
                     })
                 }
             },
             addCart(id) {
                 //console.log(id)
-                axios.get("/cart/" + id).then((res)=>{
+                axios.get("/cart/" + id).then((res) => {
                     alert(res.data.data)
                 }).catch(function (error) {
                     if (error.response.status === 400) {

@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>登录</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,16 +17,16 @@
             <div>
                 <div class="inputText">
                     <i class="fa fa-user-circle" style="color: whitesmoke;"></i>
-                    <input type="text" placeholder="账号" id="username" v-model="user.username"/>
+                    <input id="username" placeholder="账号" type="text" v-model="user.username"/>
                 </div>
                 <div class="inputText">
                     <i class="fa fa-key" style="color: whitesmoke;"></i>
-                    <input type="password" placeholder="密码" id="password" v-model="user.password"/>
+                    <input id="password" placeholder="密码" type="password" v-model="user.password"/>
                 </div>
-<!--                <input type="submit" class="Button" value="登录" onclick="check()"/>-->
-                <button class="Button" @click="handlegetById">登录</button>
+                <!--                <input type="submit" class="Button" value="登录" onclick="check()"/>-->
+                <button @click="handlegetById" class="Button">登录</button>
             </div>
-            <input type="submit" class="Button" value="注册" onclick="toSignup()"/>
+            <input class="Button" onclick="toSignup()" type="submit" value="注册"/>
         </div>
     </div>
 </div>
@@ -55,18 +55,19 @@
 <!--    }-->
 
 <!--</script>-->
-<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+<script charset="utf-8" src="vue.js" type="text/javascript"></script>
 <script src="axios-0.18.0.js"></script>
 <script>
-    function toSignup(){
-        location.href='signup';
+    function toSignup() {
+        location.href = 'signup';
     }
+
     const vue = new Vue({
         el: '#app',
         data: {
-            user:{
-                username:'',
-                password:''
+            user: {
+                username: '',
+                password: ''
             }
         },
 
@@ -75,7 +76,7 @@
                 axios.post('/user', this.user).then((res) => {
                     if (res.data.success) {
                         document.cookie = res.data.data;
-                        if (res.data.errorMsg === '0'){
+                        if (res.data.errorMsg === '0') {
                             window.location.href = 'admin.html'
                         } else {
                             window.location.href = 'home.html'

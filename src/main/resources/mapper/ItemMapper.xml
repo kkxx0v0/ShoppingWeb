@@ -5,12 +5,12 @@
 <mapper namespace="cn.edu.scut.shoppinngweb.mapper.ItemMapper">
     <select id="selectAll" resultType="cn.edu.scut.shoppinngweb.entity.Item">
         SELECT *
-        FROM  tb_item
+        FROM tb_item
     </select>
 
     <select id="selectByName" resultType="cn.edu.scut.shoppinngweb.entity.Item">
         SELECT *
-        FROM  tb_item
+        FROM tb_item
         WHERE name = #{itemName}
     </select>
 

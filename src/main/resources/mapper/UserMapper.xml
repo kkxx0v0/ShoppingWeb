@@ -5,8 +5,8 @@
 <mapper namespace="cn.edu.scut.shoppinngweb.mapper.UserMapper">
     <select id="selectUserByName" resultType="cn.edu.scut.shoppinngweb.entity.User">
         SELECT *
-        FROM  tb_user
-        WHERE username =  #{userName}
+        FROM tb_user
+        WHERE username = #{userName}
     </select>
 
 </mapper>

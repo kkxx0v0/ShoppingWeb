@@ -1,10 +1,10 @@
 package cn.edu.scut.shoppinngweb.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import cn.edu.scut.shoppinngweb.dto.Result;
 import cn.edu.scut.shoppinngweb.entity.Item;
 import cn.edu.scut.shoppinngweb.service.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/item")
@@ -14,17 +14,17 @@ public class ItemController {
     ItemService itemService;
 
     @GetMapping()
-    public Result getAll(){
+    public Result getAll() {
         return itemService.getAllItem();
     }
 
     @GetMapping("/{name}")
-    public Result getItem(@PathVariable String name){
+    public Result getItem(@PathVariable String name) {
         return itemService.getItem(name);
     }
 
     @PostMapping()
-    public Result insertItem(@RequestBody Item item){
+    public Result insertItem(@RequestBody Item item) {
         if (item.getId() != null) {
             return itemService.modifyItem(item);
         } else {
@@ -33,12 +33,12 @@ public class ItemController {
     }
 
     @DeleteMapping()
-    public Result deleteItem(@RequestBody Item item){
+    public Result deleteItem(@RequestBody Item item) {
         return itemService.deleteItem(item.getId());
     }
 
     @PutMapping()
-    public Result modifyItem(@RequestBody Item item){
+    public Result modifyItem(@RequestBody Item item) {
         return itemService.modifyItem(item);
     }
 }

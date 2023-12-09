@@ -5,25 +5,27 @@
 <mapper namespace="cn.edu.scut.shoppinngweb.mapper.CartMapper">
     <select id="selectByUserItem" resultType="cn.edu.scut.shoppinngweb.entity.Cart">
         SELECT *
-        FROM  tb_cart
-        WHERE user_id = #{userId} AND item_id = #{itemId}
+        FROM tb_cart
+        WHERE user_id = #{userId}
+          AND item_id = #{itemId}
     </select>
 
     <select id="selectByUserId" resultType="cn.edu.scut.shoppinngweb.entity.Cart">
         SELECT *
-        FROM  tb_cart
+        FROM tb_cart
         WHERE user_id = #{userId}
     </select>
 
     <delete id="deleteByUserItem">
         DELETE
         FROM tb_cart
-        WHERE user_id = #{userId} AND item_id = #{itemId}
+        WHERE user_id = #{userId}
+          AND item_id = #{itemId}
     </delete>
 
     <select id="selectCountByItemId" resultType="Integer">
         SELECT SUM(count)
-        FROM  tb_cart
+        FROM tb_cart
         WHERE item_id = #{itemId}
     </select>
 

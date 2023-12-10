@@ -12,7 +12,7 @@ public class MailService {
 
     public void sendMail(String to, String subject, String text) {
         SimpleMailMessage smm = new SimpleMailMessage();
-        smm.setFrom("cuiyuxin2002@outlook.com");//发送者
+        smm.setFrom("3582886647@qq.com");//发送者
         smm.setTo(to);//收件人
         smm.setSubject(subject);//邮件主题
         smm.setText(text);//邮件内容

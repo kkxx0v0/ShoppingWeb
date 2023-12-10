@@ -10,10 +10,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
-#top {
+.app{
+    margin: 0 auto 100px;
+}
+.top {
     width: calc(100% - 40px);
     height: calc(100% - 40px);
-    margin: 0 auto;
+    margin: 0 auto 100px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,6 +29,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
     height: 50px;
 }
 

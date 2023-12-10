@@ -13,10 +13,13 @@
 
         <div class="header">
             <button @click="toExit" class="button">退出登录</button>
-            <h1>购 物 车</h1>
+<!--            <div>-->
+<!--                <p class="total">余额: {{ balance }}</p>-->
+<!--            </div>-->
             <div>
                 <p class="total">总价格: {{ sum }}</p>
             </div>
+            <button @click="toHome" class="button">前往商城</button>
             <button @click="buy" class="button">购买</button>
         </div>
 
@@ -59,6 +62,7 @@
             search: '',
             items: [],
             sum: "0",
+            balance: "0"
         },
         created() {
             this.getAll()
@@ -67,6 +71,7 @@
             getAll() {
                 axios.get("/cart").then((res) => {
                     this.items = res.data.data;
+                    this.sum = "0";
                     for (let i = 0; i < this.items.length; i++) {
                         this.sum = (parseFloat(this.sum) + parseFloat(this.items[i].price) * parseFloat(this.items[i].count)).toFixed(2);
                     }
@@ -88,7 +93,7 @@
                 axios.get("/order").then((res) => {
                     if (res.data.success) {
                         alert("成功购买购物车全部物品！")
-                        window.location.href = 'buyer.html';
+                        window.location.href = 'home.html';
                     } else {
                         alert(res.data.errorMsg)
                         this.getAll()
@@ -97,6 +102,9 @@
             },
             toExit() {
                 window.location.href = 'login.html';
+            },
+            toHome() {
+                window.location.href = 'home.html';
             },
         }
     });

@@ -74,11 +74,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
         mailService.sendMail(user.getEmail(),
                 "完成订单：" + order.getId(),
-                "点击链接完成订单：http://localhost:18080/order/" + order.getId());
+                "点击链接完成订单：http://localhost:8642/order/" + order.getId());
         return Result.ok("下单成功");
     }
 
     @Override
+    @Transactional
     public Result finishOrder(Long id) {
         Order order = orderMapper.selectById(id);
         if (order == null) {
@@ -93,6 +94,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
+    @Transactional
     public Result getReport() {
         List<Item> items = itemMapper.selectList(null);
         List<ItemReport> itemReports = new ArrayList<>();
@@ -118,6 +120,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
+    @Transactional
     public Result getAllOrder() {
         List<Order> orders = orderMapper.selectList(null);
         List<BuyReport> buyReports = new ArrayList<>();

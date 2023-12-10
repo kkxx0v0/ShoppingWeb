@@ -11,6 +11,7 @@ import cn.edu.scut.shoppinngweb.service.CartService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
     private UserMapper userMapper;
 
     @Override
+    @Transactional
     public Result addCart(Long userId, Long itemId) {
         Cart cart = cartMapper.selectByUserItem(userId, itemId);
         if (cart == null) {
@@ -48,6 +50,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
     }
 
     @Override
+    @Transactional
     public Result getCart(Long userId) {
         List<Cart> carts = cartMapper.selectByUserId(userId);
         List<Item> items = new ArrayList<>();
@@ -60,6 +63,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
     }
 
     @Override
+    @Transactional
     public Result deleteCart(Long userId, Long itemId) {
         int i = cartMapper.deleteByUserItem(userId, itemId);
         if (i > 0) {
@@ -70,6 +74,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
     }
 
     @Override
+    @Transactional
     public Result getViewReport() {
         List<Cart> carts = cartMapper.selectList(null);
         List<ViewReport> viewReports = new ArrayList<>();

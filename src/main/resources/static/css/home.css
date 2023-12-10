@@ -29,8 +29,20 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     height: 50px;
+}
+
+.a{
+    font-size: xx-large;
+    align-content: center;
+    font-weight: bold;
+}
+
+.b{
+    font-size: xx-large;
+    align-content: center;
+    font-weight: bold;
 }
 
 .banner {
@@ -51,6 +63,19 @@ body {
     height: 60px;
     margin: 10px 10px;
     font-size: 25px;
+    padding: 8px 12px;
+    background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+    color: #dddddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.op_button {
+    height: 40px;
+    margin: 10px 10px;
+    font-size: 20px;
     padding: 8px 12px;
     background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
     color: #dddddd;

@@ -19,9 +19,9 @@
 
         <div class="header">
             <button @click="toExit" class="button">退出登录</button>
-            <input @click="searchById" class="search-input" placeholder="请输入商品名进行搜索">
-            <button class="button">搜索</button>
-            <button @click="toCart" class="button">购物车</button>
+            <input  v-model="search" class="search-input" placeholder="请输入商品名进行搜索">
+            <button @click="searchById" class="button">搜索</button>
+            <button @click="toCart" class="button">进入购物车</button>
         </div>
 
         <template>

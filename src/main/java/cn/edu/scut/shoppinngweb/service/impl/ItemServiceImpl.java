@@ -7,6 +7,7 @@ import cn.edu.scut.shoppinngweb.service.ItemService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,12 +18,14 @@ public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements It
     private ItemMapper itemMapper;
 
     @Override
+    @Transactional
     public Result getAllItem() {
         List<Item> allItem = itemMapper.selectAll();
         return Result.ok(allItem, (long) allItem.size());
     }
 
     @Override
+    @Transactional
     public Result getItem(String name) {
         List<Item> allItem = itemMapper.selectByName(name);
         return Result.ok(allItem, (long) allItem.size());

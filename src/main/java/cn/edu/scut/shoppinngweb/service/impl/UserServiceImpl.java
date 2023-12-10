@@ -9,6 +9,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -19,6 +20,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private UserMapper userMapper;
 
     @Override
+    @Transactional
     public Result login(User user, HttpServletResponse response) {
         User u = userMapper.selectUserByName(user.getUsername());
         if (u != null) {
@@ -36,6 +38,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    @Transactional
     public Result register(User user) {
         User u = userMapper.selectUserByName(user.getUsername());
         if (u != null) {
@@ -52,6 +55,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    @Transactional
     public Result getUsers() {
         return Result.ok(userMapper.selectList(null));
     }
